@@ -1330,7 +1330,8 @@ extern "C" {
         try {
             Transport& tr = TransportCabinet::item(n);
             tr.checkSpeciesArraySize(ld);
-            tr.getMixDiffCoeffs(d);
+            //tr.getMixDiffCoeffs(d);
+            tr.getMixDiffCoeffsMass(d);
             return 0;
         } catch (...) {
             return handleAllExceptions(-1, ERR);
