@@ -758,6 +758,32 @@ extern "C" {
         }
     }
 
+    // added by Kihiro
+    int thermo_getPartialMolarIntEnergies(int n, size_t lenm, double* e)
+    {
+        try {
+            ThermoPhase& thrm = ThermoCabinet::item(n);
+            thrm.checkSpeciesArraySize(lenm);
+            thrm.getPartialMolarIntEnergies(e);
+            return 0;
+        } catch (...) {
+            return handleAllExceptions(-1, ERR);
+        }
+    }
+
+    // added by Kihiro
+    int thermo_getPartialMolarEnthalpies(int n, size_t lenm, double* h)
+    {
+        try {
+            ThermoPhase& thrm = ThermoCabinet::item(n);
+            thrm.checkSpeciesArraySize(lenm);
+            thrm.getPartialMolarEnthalpies(h);
+            return 0;
+        } catch (...) {
+            return handleAllExceptions(-1, ERR);
+        }
+    }
+
     int thermo_setElectricPotential(int n, double v)
     {
         try {

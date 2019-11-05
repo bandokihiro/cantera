@@ -76,6 +76,11 @@ extern "C" {
     CANTERA_CAPI int thermo_getEnthalpies_RT(int n, size_t lenm, double* h_rt);
     CANTERA_CAPI int thermo_getEntropies_R(int n, size_t lenm, double* s_r);
     CANTERA_CAPI int thermo_getCp_R(int n, size_t lenm, double* cp_r);
+
+    // added by Kihiro
+    CANTERA_CAPI int thermo_getPartialMolarIntEnergies(int n, size_t lenm, double* e);
+    CANTERA_CAPI int thermo_getPartialMolarEnthalpies(int n, size_t lenm, double* e);
+
     CANTERA_CAPI int thermo_setElectricPotential(int n, double v);
     CANTERA_CAPI int thermo_set_RP(int n, double* vals);
     CANTERA_CAPI int thermo_set_HP(int n, double* vals);
