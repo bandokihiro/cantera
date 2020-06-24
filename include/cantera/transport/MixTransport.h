@@ -151,6 +151,16 @@ public:
 
     virtual void init(thermo_t* thermo, int mode=0, int log_level=0);
 
+    void getTransportFitCoeffs(std::vector<std::vector<double>> &visc,
+                               std::vector<std::vector<double>> &cond,
+                               std::vector<std::vector<double>> &diff,
+                               int &type) {
+        visc = m_visccoeffs;
+        cond = m_condcoeffs;
+        diff = m_diffcoeffs;
+        type = m_mode;
+    }
+
 protected:
     //! Calculate the pressure from the ideal gas law
     doublereal pressure_ig() const {
