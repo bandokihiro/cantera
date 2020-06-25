@@ -392,4 +392,39 @@ void GasKinetics::invalidateCache()
     m_pres += 0.13579;
 }
 
+void GasKinetics::report_internal() const {
+    cout << "===== Reporting internal structure of GasKinetics =====" << endl;
+    cout << endl;
+
+    cout << "m_rfn.size()                      = " << m_rfn.size() << endl
+         << "m_rfn_low.size()                  = " << m_rfn_low.size() << endl
+         << "falloff_work.size()               = " << falloff_work.size() << endl
+         << "concm_3b_values.size()            = " << concm_3b_values.size() << endl
+         << "concm_falloff_values.size()       = " << concm_falloff_values.size() << endl
+
+         << "m_rates.nReactions()              = " << m_rates.nReactions() << endl
+         << "m_plog_rates.nReactions()         = " << m_plog_rates.nReactions() << endl
+         << "m_cheb_rates.nReactions()         = " << m_cheb_rates.nReactions() << endl
+         << "m_falloff_high_rates.nReactions() = " << m_falloff_high_rates.nReactions() << endl;
+
+    cout << endl;
+    cout << "=======================================================" << endl;
+}
+
+void GasKinetics::get_rfn_params(vector<double> &A, vector<double> &b, vector<double> &E_R) {
+    A.resize(m_rates.nReactions());
+    b.resize(m_rates.nReactions());
+    E_R.resize(m_rates.nReactions());
+
+    for (size_t i=0; i<m_rates.nReactions(); i++) {
+        A[i] = m_rates.effectivePreExponentialFactor(i);
+        b[i] = m_rates.effectiveTemperatureExponent(i);
+        E_R[i] = m_rates.effectiveActivationEnergy_R(i);
+    }
+}
+
+const StoichManagerN & GasKinetics::get_m_reactantStoich() const {
+    return m_reactantStoich;
+}
+
 }

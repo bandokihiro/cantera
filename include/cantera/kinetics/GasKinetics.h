@@ -67,6 +67,10 @@ public:
     //! reactions.
     virtual void update_rates_C();
 
+    void report_internal() const;
+    void get_rfn_params(std::vector<double> &A, std::vector<double> &b, std::vector<double> &E);
+    const StoichManagerN & get_m_reactantStoich() const;
+
 protected:
     //! Reaction index of each falloff reaction
     std::vector<size_t> m_fallindx;

@@ -394,7 +394,7 @@ public:
         }
     }
 
-private:
+public:
     //! Length of the m_ic vector
     /*!
      *  This is the number of species which participate in the reaction order
@@ -651,7 +651,7 @@ public:
         _decrementReactions(m_cn_list.begin(), m_cn_list.end(), input, output);
     }
 
-private:
+public:
     std::vector<C1> m_c1_list;
     std::vector<C2> m_c2_list;
     std::vector<C3> m_c3_list;
