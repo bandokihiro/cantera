@@ -170,7 +170,7 @@ public:
         return 1;
     }
 
-private:
+public:
     //! Reaction number
     size_t m_rxn;
     //! Species number
@@ -231,7 +231,7 @@ public:
         return 2;
     }
 
-private:
+public:
     //! Reaction index -> index into the ROP vector
     size_t m_rxn;
 
