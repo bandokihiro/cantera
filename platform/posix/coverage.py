@@ -1,10 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 """
 Collect test coverage data and generate an html report.
 """
 
-from __future__ import print_function
 import os
 import subprocess
 import shutil
